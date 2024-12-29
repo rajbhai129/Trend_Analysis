@@ -1,0 +1,77 @@
+/* Smooth gradient background for the site */
+body {
+  background: linear-gradient(45deg, rgba(0, 173, 239, 0.7), rgba(109, 207, 246, 0.7), rgba(252, 245, 107, 0.7), rgba(245, 160, 245, 0.7));
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Styling for container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Form styling */
+.form-section {
+  margin: 20px auto;
+}
+
+label {
+  color: #333;
+}
+
+input[type="text"] {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #00bfff;
+  box-shadow: 0 0 5px #00bfff;
+}
+
+button {
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.instructions {
+  margin-top: 30px;
+}
+
+.instructions h3 {
+  color: #0056b3;
+}
+
+/* Welcome section styling */
+.welcome-section h1 {
+  color: #0078d7;
+}
+
+.welcome-section p {
+  color: #6c757d;
+}
+
+/* Footer styling */
+footer {
+  background-color: #0078d7;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+}

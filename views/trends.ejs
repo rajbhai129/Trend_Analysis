@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend Analysis Results</title>
+    <link rel="stylesheet" href="/main.css">
+    <style>
+        .action-buttons {
+            display: flex;
+            gap: 10px; /* Spacing between the buttons */
+            margin-top: 20px;
+        }
+
+        .action-buttons button,
+        .action-buttons a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-home {
+            background-color: #007bff; /* Blue button */
+        }
+
+        .btn-download {
+            background-color: #28a745; /* Green button */
+        }
+
+        .btn-home:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-download:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trends Data for: <%= queries %></h1>
+
+    <% if (trendsData && trendsData.length > 0) { %>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <% trendsData[0].values.forEach(val => { %>
+                        <th><%= val.query %></th>
+                    <% }); %>
+                    <th>Trend Winner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% trendsData.forEach(data => { %>
+                    <tr>
+                        <td><%= data.date %></td>
+                        <% data.values.forEach(val => { %>
+                            <td><%= val.value %></td>
+                        <% }); %>
+                        <td><%= data.trendWinner %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No trend data available. Please try again with different queries.</p>
+    <% } %>
+
+    <!-- Buttons Section -->
+    <div class="action-buttons">
+        <a href="/" class="btn-home"><strong>Back to Home</strong></a>
+        <form action="/download-csv" method="get" style="margin: 0;">
+            <button type="submit" class="btn-download"><strong>Download Results as CSV</strong></button>
+        </form>
+    </div>
+</body>
+</html>
